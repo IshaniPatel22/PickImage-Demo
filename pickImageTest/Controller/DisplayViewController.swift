@@ -19,6 +19,7 @@ class DisplayViewController: UIViewController,UIGestureRecognizerDelegate {
     var image: UIImage = UIImage()
     let Imogies = ["😍","😁","😅","😇","🤓","😛","🥸","🥰","😰"]
     var pinchGesture = UIPinchGestureRecognizer()
+    let cellIdentifire = "cell"
      
     
     //MARK:- Viewcontroller lifecycle
@@ -32,7 +33,7 @@ class DisplayViewController: UIViewController,UIGestureRecognizerDelegate {
 //MARK:- IBAction
 extension DisplayViewController {
     
-    // Dismiss button
+    // Dismiss button for back
     @IBAction func btnDismissAction(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
@@ -104,10 +105,9 @@ extension DisplayViewController: UICollectionViewDataSource, UICollectionViewDel
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! cell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier:  cellIdentifire , for: indexPath) as! cell
         cell.imojiLabel.text = Imogies[indexPath.row]
-        //cell.imojiLabel.text = " \(self.Imogies[indexPath.row]) "
-               return cell
+        return cell
          
     }
     
